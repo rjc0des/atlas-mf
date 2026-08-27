@@ -8,6 +8,21 @@
     },
     {
       "path": "./apps/shell"
+    },
+    {
+      "path": "./shell"
+    },
+    {
+      "path": "./boards"
+    },
+    {
+      "path": "./reports"
+    },
+    {
+      "path": "./settings"
+    },
+    {
+      "path": "./libs/shared-ui"
     }
   ]
 }

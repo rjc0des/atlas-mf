@@ -1,0 +1,106 @@
+{
+  "name": "boards",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "boards",
+    "sourceRoot": "boards/src",
+    "targets": {
+      "build": {
+        "executor": "@nx/webpack:webpack",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "defaultConfiguration": "production",
+        "options": {
+          "compiler": "babel",
+          "outputPath": "boards/dist",
+          "index": "boards/src/index.html",
+          "baseHref": "/",
+          "main": "boards/src/main.ts",
+          "tsConfig": "boards/tsconfig.app.json",
+          "assets": [
+            "boards/src/favicon.ico",
+            "boards/src/assets"
+          ],
+          "styles": [
+            "boards/src/styles.css"
+          ],
+          "scripts": [],
+          "webpackConfig": "boards/webpack.config.ts"
+        },
+        "configurations": {
+          "development": {
+            "extractLicenses": false,
+            "optimization": false,
+            "sourceMap": true,
+            "vendorChunk": true
+          },
+          "production": {
+            "fileReplacements": [
+              {
+                "replace": "boards/src/environments/environment.ts",
+                "with": "boards/src/environments/environment.prod.ts"
+              }
+            ],
+            "optimization": true,
+            "outputHashing": "all",
+            "sourceMap": false,
+            "namedChunks": false,
+            "extractLicenses": true,
+            "vendorChunk": false
+          }
+        },
+        "dependsOn": [
+          "^build",
+          "typecheck"
+        ]
+      },
+      "serve": {
+        "executor": "@nx/react:module-federation-dev-server",
+        "defaultConfiguration": "development",
+        "options": {
+          "buildTarget": "boards:build",
+          "hmr": true,
+          "port": 4201
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "boards:build:development"
+          },
+          "production": {
+            "buildTarget": "boards:build:production",
+            "hmr": false
+          }
+        },
+        "dependsOn": [
+          "typecheck"
+        ]
+      },
+      "serve-static": {
+        "executor": "@nx/react:module-federation-static-server",
+        "defaultConfiguration": "production",
+        "options": {
+          "serveTarget": "boards:serve"
+        },
+        "configurations": {
+          "development": {
+            "serveTarget": "boards:serve:development"
+          },
+          "production": {
+            "serveTarget": "boards:serve:production"
+          }
+        }
+      }
+    }
+  },
+  "exports": {
+    "./Module": {
+      "@atlas-mf/source": "./src/remote-entry.ts",
+      "types": "./src/remote-entry.ts",
+      "import": "./src/remote-entry.ts",
+      "default": "./src/remote-entry.ts"
+    }
+  },
+  "types": "./src/remote-entry.ts"
+}
