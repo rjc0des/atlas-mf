@@ -1,13 +1,13 @@
 # Atlas MF
 
-**Atlas MF** — an incident response dashboard built as an Nx monorepo using Webpack
+**Atlas MF**: an incident response dashboard built as an Nx monorepo using Webpack
 Module Federation. One host app (`shell`) composes three independently
 built/deployed micro-frontends (`boards`, `reports`, `settings`) at runtime.
 
 ## Architecture
 
 All four apps are sibling top-level folders in the repo (`shell/`, `boards/`,
-`reports/`, `settings/`) — `shell` is the runtime host, not a parent directory.
+`reports/`, `settings/`); `shell` is the runtime host, not a parent directory.
 
 ```
 shell     (host)   routes: /, /boards, /reports, /settings
@@ -23,7 +23,7 @@ libs/shared-ui      design system consumed by all four apps (Button, Card,
   by `shell` via `React.lazy(() => import('boards/Module'))` etc.
   (`shell/src/app/app.tsx`).
 - Federation wiring lives in each project's `module-federation.config.ts`;
-  `shell`'s lists the three remote names, each remote's just declares its own
+  `shell`'s lists the three remote names; each remote's just declares its own
   `name` and `exposes`.
 - All apps consume `@atlas-mf/shared-ui` (`libs/shared-ui`) for UI primitives
   and the shared theme/token CSS, so a design change there propagates
@@ -53,7 +53,7 @@ npx nx serve shell     # runs shell + all its remotes together
 ```
 
 Open the printed shell URL (Nx module-federation dev-mode wires the remotes'
-dev servers automatically — no manual port juggling needed).
+dev servers automatically, no manual port juggling needed).
 
 ## Common tasks
 
@@ -70,7 +70,7 @@ Run any target for every project with `npx nx run-many -t <target>`.
 
 ## Repo layout notes
 
-- `.nx/`, `tmp/`, `**/dist`, `**/out-tsc` are Nx build/cache output — not
-  committed logic, safe to ignore when reading the codebase.
+- `.nx/`, `tmp/`, `**/dist`, `**/out-tsc` are Nx build/cache output, not
+  committed logic; safe to ignore when reading the codebase.
 - Design tokens and Tailwind theme live in `libs/shared-ui/src/tokens.css`;
   app-level `styles.css` files import Tailwind and rely on those tokens.
