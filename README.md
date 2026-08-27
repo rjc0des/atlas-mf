@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/6f331f23-8bcf-4a71-a7f7-90a91bdb0b14
+
 # Atlas MF
 
 **Atlas MF**: an incident response dashboard built as an Nx monorepo using Webpack
