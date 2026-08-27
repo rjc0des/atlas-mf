@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atlas-mf
+  labels:
+    app: atlas-mf
+spec:
+  replicas: 1 # module-federation-static-server is a single stateful process; don't scale >1 without an external MF wiring fix (see note below)
+  selector:
+    matchLabels:
+      app: atlas-mf
+  template:
+    metadata:
+      labels:
+        app: atlas-mf
+    spec:
+      containers:
+        - name: atlas-mf
+          image: atlas-mf:latest # replace with your built/pushed image
+          ports:
+            - containerPort: 4200 # shell
+            - containerPort: 4201 # boards
+            - containerPort: 4202 # reports
+            - containerPort: 4203 # settings
+          readinessProbe:
+            tcpSocket:
+              port: 4200
+            initialDelaySeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 4200
+            initialDelaySeconds: 15
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: atlas-mf
+spec:
+  selector:
+    app: atlas-mf
+  ports:
+    - name: shell
+      port: 4200
+      targetPort: 4200
+    - name: boards
+      port: 4201
+      targetPort: 4201
+    - name: reports
+      port: 4202
+      targetPort: 4202
+    - name: settings
+      port: 4203
+      targetPort: 4203
