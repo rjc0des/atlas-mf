@@ -2,7 +2,15 @@ import { useState } from 'react';
 import { Button, Input } from '@atlas-mf/shared-ui';
 import type { Severity } from './types';
 
-export function AddCardForm({ onAdd }: { onAdd: (card: { title: string; description: string; severity: Severity }) => void }) {
+export function AddCardForm({
+  onAdd,
+}: {
+  onAdd: (card: {
+    title: string;
+    description: string;
+    severity: Severity;
+  }) => void;
+}) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [severity, setSeverity] = useState<Severity>('warning');
@@ -17,7 +25,10 @@ export function AddCardForm({ onAdd }: { onAdd: (card: { title: string; descript
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-sm mb-md items-center flex-wrap">
+    <form
+      onSubmit={handleSubmit}
+      className="flex gap-sm mb-md items-center flex-wrap"
+    >
       <Input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -39,7 +50,7 @@ export function AddCardForm({ onAdd }: { onAdd: (card: { title: string; descript
         <option value="warning">Warning</option>
         <option value="minor">Minor</option>
       </select>
-      <Button type="submit" size="sm">
+      <Button type="submit" size="sm" className="cursor-pointer">
         Add card
       </Button>
     </form>

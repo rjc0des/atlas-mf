@@ -44,6 +44,9 @@ export function DraggableCard({
       <div className="flex items-center gap-xs">
         <StatusDot tone={columnMeta.dot} />
         <span className="text-sm font-medium text-text">{card.title}</span>
+        <span className="ml-auto font-mono text-[10px] uppercase tracking-wide text-text-muted">
+          {card.severity}
+        </span>
       </div>
       <p className="mt-xs text-xs text-text-muted">{card.description}</p>
       {upNext && (

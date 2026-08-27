@@ -2,7 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { forwardRef, type HTMLAttributes } from 'react';
 import { cn } from './cn';
 
-const cardVariants = cva('bg-surface border border-border rounded-sm', {
+const cardVariants = cva('bg-surface border-2 border-border rounded-sm', {
   variants: {
     accent: {
       none: '',

@@ -10,9 +10,9 @@ export interface StatCardProps {
 
 export function StatCard({ label, value, trend, trendTone = 'neutral', className }: StatCardProps) {
   return (
-    <div className={cn('bg-surface border border-border rounded-sm p-md', className)}>
-      <div className="text-xs uppercase tracking-wide text-text-muted">{label}</div>
-      <div className="mt-xs text-3xl font-semibold tabular-nums text-text">{value}</div>
+    <div className={cn('bg-surface border-2 border-border rounded-sm p-md', className)}>
+      <div className="text-xs uppercase tracking-wide text-text-muted font-mono">{label}</div>
+      <div className="mt-xs text-3xl font-black tabular-nums font-mono text-text">{value}</div>
       {trend && (
         <div
           className={cn('mt-xs text-xs', {

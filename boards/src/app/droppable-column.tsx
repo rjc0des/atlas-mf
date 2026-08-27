@@ -17,14 +17,14 @@ export function DroppableColumn({
   return (
     <div
       ref={setNodeRef}
-      className={`flex-1 min-w-0 rounded-sm border border-border bg-surface p-sm ${
+      className={`flex-1 min-w-0 rounded-sm border-2 border-border bg-surface p-sm ${
         isOver ? 'border-primary' : ''
       }`}
     >
       <div className="flex items-center gap-xs mb-sm px-xs">
         <StatusDot tone={column.dot} />
-        <h2 className="text-sm font-semibold text-text">{column.label}</h2>
-        <span className="ml-auto text-xs text-text-muted">{cards.length}</span>
+        <h2 className="text-sm font-bold uppercase tracking-wide text-text">{column.label}</h2>
+        <span className="ml-auto font-mono text-xs text-text-muted">{cards.length}</span>
       </div>
       {cards.map((card) => (
         <DraggableCard

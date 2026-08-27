@@ -50,6 +50,10 @@ export function App() {
 
   return (
     <div className="p-md">
+      <div className="mb-md">
+        <div className="font-mono text-xs uppercase tracking-widest text-pulse">Boards</div>
+        <h1 className="text-2xl font-black tracking-tight">Incident triage</h1>
+      </div>
       <AddCardForm onAdd={handleAddCard} />
 
       <DndContext onDragEnd={handleDragEnd}>
