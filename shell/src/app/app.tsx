@@ -78,7 +78,7 @@ export function App() {
         <div className="flex items-center gap-xs">
           <StatusDot tone="success" live />
           <span className="font-mono text-sm font-black uppercase tracking-wider">
-            Pulse
+            Atlas MF
           </span>
         </div>
         <nav className="flex gap-xs">

@@ -1,6 +1,6 @@
 # Atlas MF
 
-**Pulse** — an incident response dashboard built as an Nx monorepo using Webpack
+**Atlas MF** — an incident response dashboard built as an Nx monorepo using Webpack
 Module Federation. One host app (`shell`) composes three independently
 built/deployed micro-frontends (`boards`, `reports`, `settings`) at runtime.
 

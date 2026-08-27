@@ -13,13 +13,13 @@ describe('App', () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it('should render the Pulse header and nav', () => {
+  it('should render the Atlas MF header and nav', () => {
     const { getByText } = render(
       <BrowserRouter>
         <App />
       </BrowserRouter>,
     );
-    expect(getByText('Pulse')).toBeTruthy();
+    expect(getByText('Atlas MF')).toBeTruthy();
     expect(getByText('Boards')).toBeTruthy();
     expect(getByText('Reports')).toBeTruthy();
     expect(getByText('Settings')).toBeTruthy();
