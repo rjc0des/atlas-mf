@@ -1,0 +1,15 @@
+/* Design tokens shared by shell + all remotes. Import once per app after `@import "tailwindcss"`.
+   Tailwind v4 reads @theme and both generates utility classes (bg-primary, p-md, ...)
+   and emits these as real :root CSS custom properties. */
+@theme {
+  --color-primary: #4f46e5;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-border: #e2e8f0;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+}

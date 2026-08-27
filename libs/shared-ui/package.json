@@ -9,6 +9,7 @@
       "import": "./src/index.ts",
       "default": "./src/index.ts"
     },
+    "./tokens.css": "./src/tokens.css",
     "./package.json": "./package.json"
   }
 }
