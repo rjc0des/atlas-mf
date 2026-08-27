@@ -8,10 +8,10 @@ describe('App', () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it('should have a greeting as the title', () => {
-    const { getAllByText } = render(<App />);
-    expect(
-      getAllByText(new RegExp('Welcome boards', 'gi')).length > 0,
-    ).toBeTruthy();
+  it('should render the three incident/deploy columns', () => {
+    const { getByText } = render(<App />);
+    expect(getByText('Investigating')).toBeTruthy();
+    expect(getByText('Mitigating')).toBeTruthy();
+    expect(getByText('Resolved')).toBeTruthy();
   });
 });

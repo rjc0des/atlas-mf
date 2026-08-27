@@ -1,15 +1,51 @@
 /* Design tokens shared by shell + all remotes. Import once per app after `@import "tailwindcss"`.
    Tailwind v4 reads @theme and both generates utility classes (bg-primary, p-md, ...)
-   and emits these as real :root CSS custom properties. */
+   and emits these as real :root CSS custom properties.
+
+   Dark is the default theme (Pulse is dark-mode first). `[data-theme="light"]` on
+   <html> overrides the palette; see `./lib/theme.ts` for the cross-remote toggle. */
 @theme {
-  --color-primary: #4f46e5;
+  --color-primary: #6366f1;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #f1f5f9;
-  --color-secondary-foreground: #0f172a;
-  --color-border: #e2e8f0;
+  --color-secondary: #171c25;
+  --color-secondary-foreground: #e2e8f0;
+  --color-border: #262b36;
+
+  --color-bg: #0a0e14;
+  --color-surface: #11151c;
+  --color-surface-2: #171c25;
+  --color-text: #e2e8f0;
+  --color-text-muted: #8b95a7;
+
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-success: #22c55e;
+  --color-info: #3b82f6;
 
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
+}
+
+[data-theme='light'] {
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-border: #e2e8f0;
+
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-2: #f1f5f9;
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+}
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
 }

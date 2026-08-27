@@ -1,13 +1,13 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
-import { Button } from '@atlas-mf/shared-ui';
+import { AppearanceSection } from './appearance-section';
+import { NotificationsSection } from './notifications-section';
+import { ThresholdsSection } from './thresholds-section';
 
 export function App() {
   return (
-    <div>
-      <NxWelcome title="settings" />
-      <Button variant="primary">Save changes</Button>
+    <div className="p-md flex flex-col gap-sm max-w-2xl">
+      <AppearanceSection />
+      <NotificationsSection />
+      <ThresholdsSection />
     </div>
   );
 }

@@ -13,14 +13,15 @@ describe('App', () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it('should have a greeting as the title', () => {
-    const { getAllByText } = render(
+  it('should render the Pulse header and nav', () => {
+    const { getByText } = render(
       <BrowserRouter>
         <App />
       </BrowserRouter>,
     );
-    expect(
-      getAllByText(new RegExp('Welcome shell', 'gi')).length > 0,
-    ).toBeTruthy();
+    expect(getByText('Pulse')).toBeTruthy();
+    expect(getByText('Boards')).toBeTruthy();
+    expect(getByText('Reports')).toBeTruthy();
+    expect(getByText('Settings')).toBeTruthy();
   });
 });

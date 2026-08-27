@@ -8,10 +8,10 @@ describe('App', () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it('should have a greeting as the title', () => {
-    const { getAllByText } = render(<App />);
-    expect(
-      getAllByText(new RegExp('Welcome settings', 'gi')).length > 0,
-    ).toBeTruthy();
+  it('should render all settings sections', () => {
+    const { getByText } = render(<App />);
+    expect(getByText('Appearance')).toBeTruthy();
+    expect(getByText('Notifications')).toBeTruthy();
+    expect(getByText('Environment thresholds')).toBeTruthy();
   });
 });

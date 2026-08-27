@@ -1,13 +1,17 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
-import { Button } from '@atlas-mf/shared-ui';
+import { useEffect } from 'react';
+import { initTheme } from '@atlas-mf/shared-ui';
+import { MetricStats } from './metric-stats';
+import { OpsCharts } from './ops-charts';
 
 export function App() {
+  useEffect(() => {
+    initTheme();
+  }, []);
+
   return (
-    <div>
-      <NxWelcome title="reports" />
-      <Button variant="secondary">Export report</Button>
+    <div className="p-md">
+      <MetricStats />
+      <OpsCharts />
     </div>
   );
 }
